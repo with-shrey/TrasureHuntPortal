@@ -31,7 +31,7 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Login/Logout animation concept</title>
+  <title>Login To Hunt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href="css/opensans.css">
