@@ -23,7 +23,7 @@ if($_SESSION['log_in'] == 1 && isset($_SESSION['id'])){
 else
 {
     ob_start();
-    header('Location: '.'index.php');
+    header('Location: '.'login.php');
     ob_end_flush();
     die();
 }

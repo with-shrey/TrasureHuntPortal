@@ -4,5 +4,5 @@ $_SESSION['log_in'] == 0;
 session_unset();
 session_destroy();
 
-header('Location: ' . 'index.php');
+header('Location: ' . 'login.php');
 ?>
