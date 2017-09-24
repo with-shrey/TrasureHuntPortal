@@ -37,7 +37,7 @@ else
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-
+      <link rel="stylesheet" href="css/nav.css">
       <link rel="stylesheet" href="css/style-dash.css">
 <script>
   function redirectLeaderBoard(){
@@ -98,6 +98,16 @@ document.addEventListener("contextmenu", function(e){
 </head>
 
 <body style="background-image: url(img/bg.jpg);background-repeat: no-repeat;background-size: cover;" oncontextmenu="return false;">
+  <ul>
+    <li style="float:left;"><img src="img/mozguna.gif" height="60px" width="60px"></li>
+  <li  style="float:left;font-family: pieces_of_eightregular; margin-left: 30% ;font-size:45px;"><span>WAR FOR TRESOR</span></li>
+    <li><a class="active" href="logout.php">LOGOUT</a></li>
+  <li><a href="#" style="background-color:#34495e"><?php echo $id; ?></a>
+
+  <li><a style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="blank">HINTS</a></li>
+  <li><a style="background-color:#3498db;" href="leaderboard.php" target="blank">LEADERBOARD</a></li>
+
+</ul>
   <div class="cont">
   <div class="demo">
     <div class="login">

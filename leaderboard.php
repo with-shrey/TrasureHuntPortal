@@ -16,27 +16,24 @@ $id=$_SESSION['id'];
 	   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	  <link rel="stylesheet" href="css/bootstrap-index.css" type="text/css">
 	  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nav.css">
 
-
-	<title></title>
+	<title>LeaderBoard-Hunt For Tresor</title>
 </head>
 <body>
+  <ul>
+    <li style="float:left;"><img src="img/mozguna.gif" height="60px" width="60px"></li>
+  <li  style="float:left;font-family: pieces_of_eightregular; margin-left: 30% ;font-size:45px;"><span>WAR FOR TRESOR</span></li>
+    <li><a class="active" href="logout.php">LOGOUT</a></li>
+  <li><a href="#" class="active" style="background-color:#34495e"><?php echo $id; ?></a>
+
+  <li><a class="active" style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="blank">HINTS</a></li>
+  <li><a class="active" style="background-color:#3498db;" href="dashboard.php">QUESTIONS</a></li>
+
+</ul>
+<br>
+<br>
 	<div class="container">
-		<div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8"></div>
-        <div class="col-md-4">
-          <div class="btn-group btn-group-lg">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> <?php echo $id ?> </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="logout.php">Logout</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 		<div class ="row">
 			<div class="col-md-12">
 			<table class="table">

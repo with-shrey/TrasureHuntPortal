@@ -1,0 +1,54 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    padding: 27px 25px;
+    text-decoration: none;
+}
+li img{
+    margin-left:10px;
+    margin-bottom:5px;
+    margin-top:5px;
+}
+li span{
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    padding-top:10px;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: #000000;
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.active {
+    background-color: #cc0000;
+}
+@font-face {
+    font-family: 'pieces_of_eightregular';
+    src: url('pieces_of_eight-webfont.woff2') format('woff2'),
+         url('pieces_of_eight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+    

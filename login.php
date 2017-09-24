@@ -32,6 +32,7 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
 <!DOCTYPE html>
 <html >
 <head>
+
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
   <meta charset="UTF-8">
   <title>Login To Hunt</title>
@@ -40,11 +41,12 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
   <link rel='stylesheet prefetch' href="css/opensans.css">
 
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/nav.css">
   
 </head>
 
 <body>
-  
+	
   <div class="cont" style="background-image: url(img/front.jpg);">
   <div class="demo">
     <div class="login">
