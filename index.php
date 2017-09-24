@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>War for Tresor</title>
+	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" media="all" href="css/mainpage.css">
 	<script src="js/jquery-3.2.1.slim.min.js"></script>

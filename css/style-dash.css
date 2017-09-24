@@ -15,6 +15,10 @@ html, body {
   }
 }
 
+.out_container{
+  background-color:red;
+}
+
 svg {
   display: inline-block;
   width: 2rem;
@@ -48,10 +52,10 @@ input, button {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -15rem;
-  margin-top: -26.5rem;
-  width: 30rem;
-  height: 53rem;
+  margin-left: -40%;
+  margin-top: -20%;
+  width: 80%;
+  height: 80%;
   overflow: hidden;
 }
 
@@ -73,33 +77,13 @@ input, button {
           transform: scale(1.1);
 }
 .login__check {
-  position: absolute;
-  top: 16rem;
-  left: 13.5rem;
-  width: 14rem;
-  height: 2.8rem;
-  background: #fff;
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-.login__check:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 100%;
-  width: 2.8rem;
-  height: 5.2rem;
-  background: #fff;
-  box-shadow: inset -0.2rem -2rem 2rem rgba(0, 0, 0, 0.2);
-}
+ }
 .login__form {
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 50%;
   padding: 1.5rem 2.5rem;
   text-align: center;
 }
@@ -135,11 +119,11 @@ input, button {
 }
 .login__submit {
   position: relative;
-  width: 100%;
+  width: 30%;
   height: 4rem;
-  margin: 5rem 0 2.2rem;
+  margin: 2rem;
   color: rgba(255, 255, 255, 0.8);
-  background: #FF3366;
+  background: #E55B0A;
   font-size: 1.5rem;
   border-radius: 3rem;
   cursor: pointer;
@@ -197,6 +181,8 @@ input, button {
   color: #fff;
   cursor: pointer;
 }
+
+
 .ripple {
   position: absolute;
   width: 15rem;
@@ -250,19 +236,51 @@ input, button {
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #bab2b0;
+    color:    #ffffff;
+    opacity:  0.5;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #bab2b0;
-   opacity:  1;
+   color:    #ffffff;
+   opacity:  0.5;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #bab2b0;
-   opacity:  1;
+   color:    #ffffff;
+   opacity:  0.5;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #bab2b0;
+   color:    #ffffff;
+   opacity:  0.5;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #bab2b0;
+   color:    #ffffff;
+   opacity:  0.5;
 }
+
+.loader {
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid blue;
+  border-right: 4px solid green;
+  border-bottom: 4px solid red;
+  border-left: 4px solid pink;
+  width: 20px;
+  height: 20px;
+  margin-left: 45%;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#output{
+  text-align: center;
+}
+

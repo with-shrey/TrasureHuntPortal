@@ -7,7 +7,7 @@ if($_SESSION['log_in'] == 1 && isset($_SESSION['id'])){
    $res_ques_sol=$mysql->query("select solved from users where enrollid='$id' ");
   if($res_ques_sol->num_rows!=0){
       while ($row1 = $res_ques_sol->fetch_assoc()) {
-   $solved= $row1['solved']."<br>";
+   $solved= $row1['solved'];
      }
   }
   $solve = (int)$solved + 1;
@@ -15,7 +15,7 @@ if($_SESSION['log_in'] == 1 && isset($_SESSION['id'])){
      $res_img_path=$mysql->query("select * from questions where sno='$solve'") or die();
      if($res_img_path->num_rows!=0){
      while ($row = $res_img_path->fetch_assoc()) {
-     $path= $row['img_path']."<br>";
+     $path= $row['img_path'];
      }}
     if(isset($path))
     $path= str_replace("<br>","", $path);
@@ -29,17 +29,23 @@ else
 }
 ?>
 <!DOCTYPE html>
-<html>
-
+<html >
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap-index.css" type="text/css">
-    <link rel="stylesheet" href="css/style-dashboard.css" type="text/css">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <title>Questions-War For Tresor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+
+      <link rel="stylesheet" href="css/style-dash.css">
 <script>
+  function redirectLeaderBoard(){
+
+    document.location.href='leaderboard.php';
+  }
 function checkAnswer() {
-	str=document.getElementById("ans").value;
+  str=document.getElementById("ans").value;
     if (str == "") {
         document.getElementById("output").innerHTML = "Fill In The Box First";
         return;
@@ -57,16 +63,25 @@ function checkAnswer() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('submit_btn').innerHTML='Submit';
                   document.getElementById("submit_btn").disabled = false;
-                document.getElementById("output").innerHTML = this.responseText;
-                if(this.responseText == 'Success'){
-                  document.getElementById('cont_output').style.backgroundColor = '#2fb229';
-                	location.reload();
+                 var response= this.responseText;
+                if(response == 'Success'){
+                  document.getElementById("output").innerHTML=response;
+                  document.getElementById('output').style.color = '#80ff80';
+                  location.reload();
+                }else if( response == 'Wrong Answer'){
+                  document.getElementById("output").innerHTML=response;
+                  document.getElementById('output').style.color = '#ff3333';
+                }else if(response =='Well Done You Made It'){
+                  document.getElementById("output").innerHTML=response;
+                  document.getElementById('output').style.color = '#80ff80';
                 }else{
-                  document.getElementById('cont_output').style.backgroundColor = '#ff1a1a';
+                  document.getElementById("output").innerHTML="Database Error !!";
+                  console.log(response);
+                  document.getElementById('output').style.color = '#ff3333';
                 }
                 setTimeout(function(){ 
                 console.log("timeout");
-                document.getElementById("cont_output").style.backgroundColor = '#ffffff'; 
+                document.getElementById("output").style.color = 'transparent'; 
                   }, 
                   6000);
             }
@@ -79,75 +94,50 @@ document.addEventListener("contextmenu", function(e){
     e.preventDefault();
 }, false);
 </script>
-
-
+  
 </head>
 
-<body oncontextmenu="return false;">
-  <div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8"></div>
-        <div class="col-md-4">
-          <div class="btn-group btn-group-lg">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> <?php echo $id ?> </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="leaderboard.php" target="blank">LeaderBoard</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="logout.php">Logout</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-          <?php 
+<body style="background-image: url(img/bg.jpg);background-repeat: no-repeat;background-size: cover;" oncontextmenu="return false;">
+  <div class="cont">
+  <div class="demo">
+    <div class="login">
+      <div class="login__check"></div>
+      <div >
+        <?php 
           if(!isset($path))
-          	$path='finished.jpeg';
-         // echo '<img class="img-fluid d-block" src="'.$path.'" alt="Cover">'; 
-          echo '<div style="background-image: url(img/'.$path.'); height: 200px; width: 600px;background-size: contain; background-repeat:no-repeat;"></div>';
+            $path='finished.jpeg';
+          echo '<img src="img/'.$path.'" height="350px" width="350px" style="margin:1% 35% 45% 35%;" />'; 
+          // echo '<div style="background-image: url(img/'.$path.'); height: 200px; width: 600px;background-size: contain; background-repeat:no-repeat;"></div>';
           ?>
       </div>
-      <div class="col-md-3"></div>
-      <br>
-      <br> </div>
-  </div>
-  <div class="py-5" id="cont_output">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
+      <form onsubmit="checkAnswer();return false;">
+      <div class="login__form">
+      
+        <div class="login__row">
+          
+          <?php
+          if($path != 'finished.jpeg'){
+          echo '<svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+          </svg>';
+          echo '<input id="ans" type="text" class="login__input pass" placeholder="Khul Jaa Sim SIm" autocomplete="off" required/>';
+        }
+          ?>
         </div>
-        <div class="col-md-4">
-          <div>
-            <h4 id="output"></h4>
-          </div>
-        </div>
-        <div class="col-md-4"></div>
+        <div id="output" style="font-size:20px; color: white; height: 30px;"></div>
+        <?php 
+          if($path == 'finished.jpeg')
+            echo '<button id="submit_btn" type="button" class="login__submit" onclick="redirectLeaderBoard()">LeaderBoard</button>';
+          else
+            echo '<button id="submit_btn" type="button" class="login__submit" onclick="checkAnswer()">Submit Answer</button>';
+         ?>
       </div>
+      </form>
     </div>
   </div>
-  <div class="py-5 text-white bg-primary text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <p class="lead mb-4">Submit Your Answer</p>
-          <form class="form-inline justify-content-center" onsubmit="checkAnswer();return false;">
-            <div class="input-group my-1">
-              <input  type="text" class="form-control mr-3 my-1" placeholder="Answer" id="ans" autocomplete="off" required> </div>
-            <button  type="button" class="btn btn-secondary" id="submit_btn" onclick="checkAnswer()" >Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="js/jquery-3.2.1.slim.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</body>
+</div>
 
+    
+
+</body>
 </html>

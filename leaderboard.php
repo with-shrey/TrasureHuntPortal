@@ -13,7 +13,7 @@ $id=$_SESSION['id'];
 <!DOCTYPE html>
 <html>
 <head>
-	
+	   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 	  <link rel="stylesheet" href="css/bootstrap-index.css" type="text/css">
 	  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
@@ -44,6 +44,7 @@ $id=$_SESSION['id'];
     <tr>
       <th>Rank</th>
       <th>Enrollment Number</th>
+      <th>Name</th>
       <th>Score</th>
     </tr>
   </thead>
@@ -64,6 +65,7 @@ $id=$_SESSION['id'];
    		echo'<tr '.$attr.'>
       <th scope="row">'.$rank.'</th>
       <td>'.$row['enrollid'].'</td>
+      <td>'.$row['dname'].'</td>
       <td>'.$row['solved'].'</td>
     </tr>';
      }

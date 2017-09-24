@@ -5,11 +5,13 @@ $message="";
 if($_SERVER['REQUEST_METHOD']=='POST'){
  if(isset($_POST['submit'])){
  $enroll_id=str_replace(" ","",$_POST['er_id']);
+ $dname=$_POST['dname'];
 $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
 
 
-   if(preg_match('/^[1-1][4-7][1-1]/', $enroll_id) && strlen($enroll_id)>=6 && strlen($enroll_id)<=7){
-  $res=$mysql->query("insert into users values('$enroll_id','0')"); //or die($mysql->error);
+   if(preg_match('/^[1-1][4-7][1-1]/', $enroll_id) && strlen($enroll_id)>=6 && strlen($enroll_id)<=7 && strlen($dname)>0 && strlen($dname) <=10){
+  $res=$mysql->query("insert into users values('$enroll_id','$dname','0')") ;
+
     $_SESSION['log_in']=1;
     $_SESSION['id']=$enroll_id;
      
@@ -19,7 +21,7 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
     die();
    }else{
 
-    $message = "Wrong Enrollment Number";
+    $message = "Enrollment Not Valid";
     session_unset();
     session_destroy();
    }
@@ -30,6 +32,7 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
 <!DOCTYPE html>
 <html >
 <head>
+	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
   <meta charset="UTF-8">
   <title>Login To Hunt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
@@ -58,6 +61,12 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
           <input name='er_id' type="text" class="login__input name" placeholder="Enrollment Number" required autocomplete="off" pattern=".{6,7}" title="Min 6 Character & Max 7 Characters"/>
         </div>
         <div style="font-size:12px; color: red;"><?php echo $message ?></div>
+        <div class="login__row">
+          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+          </svg>
+          <input name='dname' type="text" class="login__input name" placeholder="Display Name" required autocomplete="off" pattern=".{1,10}" title="Maximum 10 Characters Allowed"/>
+        </div>
         <button type="submit" name="submit" class="login__submit">Submit</button>
       </div>
   	</form>
