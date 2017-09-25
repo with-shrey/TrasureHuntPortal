@@ -34,7 +34,7 @@ else
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
   <meta charset="UTF-8">
   <title>Questions-War For Tresor</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
       <link rel="stylesheet" href="css/nav.css">
@@ -98,11 +98,11 @@ document.addEventListener("contextmenu", function(e){
 <body style="background-image: url(img/bg.jpg);background-repeat: no-repeat;background-size: cover;" oncontextmenu="return false;">
   <ul>
     <li style="float:left;"><img src="img/mozguna.gif" height="60px" width="60px"></li>
-  <li  style="float:left;font-family: pieces_of_eightregular; margin-left: 30% ;font-size:45px;"><span>WAR FOR TRESOR</span></li>
+  <li  style="float:left;font-family: pieces_of_eightregular;font-size:40px; margin-left: 30%;"><span>WAR FOR TRESOR</span></li>
     <li><a class="active" href="logout.php">LOGOUT</a></li>
   <li><a href="#" style="background-color:#34495e"><?php echo $id; ?></a>
 
-  <li><a style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="_blank">HINTS</a></li>
+  <li><a style="background-color:#1abc9c;" href="https://www.facebook.com/events/1832466737043990/?ti=as" target="_blank">HINTS</a></li>
   <li><a style="background-color:#3498db;" href="leaderboard.php" target="_blank">SCORE</a></li>
 
 </ul>
@@ -114,8 +114,12 @@ document.addEventListener("contextmenu", function(e){
         <?php 
           if(!isset($path))
             $path='finished.jpeg';
+          if (strpos($path, 'jpg') !== false ||strpos($path, 'jpeg') !== false || strpos($path, 'png') !== false)
           echo '<img src="img/'.$path.'" height="350px" width="350px" style="margin:1% 35% 45% 35%;" />'; 
- 
+          else if(strpos($path, 'mp3') !== false)
+            echo '<audio style="margin:15% 35% 45% 35%;" controls><source src="mp3/'.$path.'" type="audio/mpeg">Your browser does not support the audio element.</audio>';
+          else if(strpos($path, 'mp4') !== false)
+            echo '<video style="margin:10% 35% 45% 35%;" width="350px" controls><source src="vid/'.$path.'" type="video/mp4">Your browser does not support HTML5 video.</video>';
           ?>
       </div>
       <form onsubmit="checkAnswer();return false;">
