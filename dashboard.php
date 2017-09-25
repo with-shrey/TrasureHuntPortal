@@ -118,10 +118,12 @@ document.addEventListener("contextmenu", function(e){
             $path='finished.jpeg';
           if (strpos($path, 'jpg') !== false ||strpos($path, 'jpeg') !== false || strpos($path, 'png') !== false)
           echo '<img src="img/'.$path.'" height="350px" width="350px" style="margin:1% 35% 45% 35%;" />'; 
-          else if(strpos($path, 'mp3') !== false)
-            echo '<audio style="margin:15% 35% 45% 35%;" controls><source src="mp3/'.$path.'" type="audio/mpeg">Your browser does not support the audio element.</audio>';
-          else if(strpos($path, 'mp4') !== false)
-            echo '<video style="margin:10% 35% 45% 35%;" width="350px" controls><source src="vid/'.$path.'" type="video/mp4">Your browser does not support HTML5 video.</video>';
+          else if(strpos($path, 'mp3') !== false){
+		$temppath=substr($path,0,strpos($path,"."));
+            echo '<audio style="margin:15% 35% 45% 35%;" controls controlsList="nodownload"><source src="mp3/'.$temppath.'.ogg" type="audio/ogg"><source src="mp3/'.$temppath.'.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>';
+          }else if(strpos($path, 'mp4') !== false){
+		$temppath=substr($path,0,strpos($path,"."));
+            echo '<video style="margin:10% 35% 45% 35%;" width="350px" controls controlsList="nodownload"><source src="vid/'.$temppath.'.ogg" type="video/ogg"><source src="vid/'.$temppath.'.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>';}
           ?>
       </div>
       <form onsubmit="checkAnswer();return false;">
