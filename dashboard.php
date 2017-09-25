@@ -102,8 +102,8 @@ document.addEventListener("contextmenu", function(e){
     <li><a class="active" href="logout.php">LOGOUT</a></li>
   <li><a href="#" style="background-color:#34495e"><?php echo $id; ?></a>
 
-  <li><a style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="blank">HINTS</a></li>
-  <li><a style="background-color:#3498db;" href="leaderboard.php" target="blank">SCORE</a></li>
+  <li><a style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="_blank">HINTS</a></li>
+  <li><a style="background-color:#3498db;" href="leaderboard.php" target="_blank">SCORE</a></li>
 
 </ul>
   <div class="cont">
@@ -128,7 +128,7 @@ document.addEventListener("contextmenu", function(e){
           echo '<svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
           </svg>';
-          echo '<input id="ans" type="text" class="login__input pass" placeholder="Khul Jaa Sim SIm" autocomplete="off" required/>';
+          echo '<input id="ans" type="text" class="login__input pass" placeholder="Answer Here" autocomplete="off" required/>';
         }
           ?>
         </div>

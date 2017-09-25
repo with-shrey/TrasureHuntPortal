@@ -72,7 +72,7 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
           </svg>
           <input name='dname' type="text" class="login__input name" placeholder="Display Name" required autocomplete="off" pattern=".{1,15}" title="Maximum 10 Characters Allowed"/>
         </div>
-        <button type="submit" name="submit" class="login__submit">Submit</button>
+        <button style="background-color: #5F9EA0;" type="submit" name="submit" class="login__submit">Submit</button>
       </div>
   	</form>
     </div>

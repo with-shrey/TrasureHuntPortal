@@ -27,7 +27,7 @@ $id=$_SESSION['id'];
     <li><a class="active" href="logout.php">LOGOUT</a></li>
   <li><a href="#" class="active" style="background-color:#34495e"><?php echo $id; ?></a>
 
-  <li><a class="active" style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="blank">HINTS</a></li>
+  <li><a class="active" style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="_blank">HINTS</a></li>
   <li><a class="active" style="background-color:#3498db;" href="dashboard.php">QUESTIONS</a></li>
 
 </ul>
