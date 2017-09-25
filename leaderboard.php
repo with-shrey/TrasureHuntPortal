@@ -25,9 +25,9 @@ $id=$_SESSION['id'];
     <li style="float:left;"><img src="img/mozguna.gif" height="60px" width="60px"></li>
   <li  style="float:left;font-family: pieces_of_eightregular; margin-left: 30% ;font-size:45px;"><span>WAR FOR TRESOR</span></li>
     <li><a class="active" href="logout.php">LOGOUT</a></li>
-  <li><a href="#" class="active" style="background-color:#34495e"><?php echo $id; ?></a>
+  <li><a href="#" class="active" style="background-color:#34495e;cursor:not-allowed;"><?php echo $id; ?></a>
 
-  <li><a class="active" style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="_blank">HINTS</a></li>
+  <li><a class="active" style="background-color:#1abc9c;cursor:help;" href="https://www.facebook.com/JuetFirefoxClub/" target="_blank">HINTS</a></li>
   <li><a class="active" style="background-color:#3498db;" href="dashboard.php">QUESTIONS</a></li>
 
 </ul>
