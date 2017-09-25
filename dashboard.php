@@ -19,7 +19,10 @@ if($_SESSION['log_in'] == 1 && isset($_SESSION['id'])){
      }}
     if(isset($path))
     $path= str_replace("<br>","", $path);
+    else
+         $path='question.jpeg';
    }
+  
 else
 {
     ob_start();
@@ -35,11 +38,12 @@ else
   <meta charset="UTF-8">
   <title>Questions-War For Tresor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <link rel="stylesheet" href="css/style-dash.css">
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
       <link rel="stylesheet" href="css/nav.css">
-      <link rel="stylesheet" href="css/style-dash.css">
+      
 <script>
+  
   function redirectLeaderBoard(){
 
     document.location.href='leaderboard.php';
@@ -112,19 +116,23 @@ document.addEventListener("contextmenu", function(e){
   <div class="demo">
     <div class="login">
       <div class="login__check"></div>
-      <div >
+      <div  id="img_div">
         <?php 
-          if(!isset($path))
-            $path='finished.jpeg';
+          
           if (strpos($path, 'jpg') !== false ||strpos($path, 'jpeg') !== false || strpos($path, 'png') !== false)
-          echo '<img src="img/'.$path.'" height="350px" width="350px" style="margin:1% 35% 45% 35%;" />'; 
-          else if(strpos($path, 'mp3') !== false){
-		$temppath=substr($path,0,strpos($path,"."));
+          echo '<img src="img/question.jpeg" height="350px" width="350px" style="margin:1% 35% 45% 35%; opacity: 0.01;"/>'; 
+         ?>
+      </div>
+      <div>
+        <?php
+        if(strpos($path, 'mp3') !== false){
+    $temppath=substr($path,0,strpos($path,"."));
             echo '<audio style="margin:15% 35% 45% 35%;" controls controlsList="nodownload"><source src="mp3/'.$temppath.'.ogg" type="audio/ogg"><source src="mp3/'.$temppath.'.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>';
           }else if(strpos($path, 'mp4') !== false){
-		$temppath=substr($path,0,strpos($path,"."));
+    $temppath=substr($path,0,strpos($path,"."));
             echo '<video style="margin:10% 35% 45% 35%;" width="350px" controls controlsList="nodownload"><source src="vid/'.$temppath.'.ogg" type="video/ogg"><source src="vid/'.$temppath.'.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>';}
-          ?>
+            ?>
+          
       </div>
       <form onsubmit="checkAnswer();return false;">
       <div class="login__form">
@@ -132,7 +140,7 @@ document.addEventListener("contextmenu", function(e){
         <div class="login__row">
           
           <?php
-          if($path != 'finished.jpeg'){
+          if($path != 'question.jpeg'){
           echo '<svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
           </svg>';
@@ -142,7 +150,7 @@ document.addEventListener("contextmenu", function(e){
         </div>
         <div id="output" style="font-size:20px; color: white; height: 30px;"></div>
         <?php 
-          if($path == 'finished.jpeg')
+          if($path == 'question.jpeg')
             echo '<button id="submit_btn" type="button" class="login__submit" onclick="redirectLeaderBoard()">LeaderBoard</button>';
           else
             echo '<button id="submit_btn" type="button" class="login__submit" onclick="checkAnswer()">Submit Answer</button>';
@@ -152,7 +160,14 @@ document.addEventListener("contextmenu", function(e){
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  document.getElementById("img_div").style.backgroundImage = <?php echo '"url(img/'.$path.')"';?>;
+  document.getElementById("img_div").style.backgroundSize ="350px 350px";
+  document.getElementById("img_div").style.backgroundRepeat ="no-repeat";
+  document.getElementById("img_div").style.backgroundPosition ="top";
 
+
+</script>
     
 
 </body>
