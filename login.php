@@ -9,12 +9,15 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
 
 
-   if(preg_match('/^[1-1][4-7][1-1]/', $enroll_id) && strlen($enroll_id)>=6 && strlen($enroll_id)<=7 && strlen($dname)>0 && strlen($dname) <=10){
-  $res=$mysql->query("insert into users values('$enroll_id','$dname','0')") ;
+   if(preg_match('/^[1-1][4-7][1-1]/', $enroll_id) && strlen($enroll_id)>=6 && strlen($enroll_id)<=7 && strlen($dname)>0 && strlen($dname) <=15){
+    $stmtins = $mysql->prepare("insert into users values(?,?,'0')");
+    $stmtins->bind_param('ss', $enroll_id,$dname);
+    $stmtins->execute();
 
+    $res = $stmtins->get_result();
     $_SESSION['log_in']=1;
     $_SESSION['id']=$enroll_id;
-     
+    $stmtins->close();
     ob_start();
     header('Location: '.'dashboard.php');
     ob_end_flush();
@@ -67,7 +70,7 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
           <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
           </svg>
-          <input name='dname' type="text" class="login__input name" placeholder="Display Name" required autocomplete="off" pattern=".{1,10}" title="Maximum 10 Characters Allowed"/>
+          <input name='dname' type="text" class="login__input name" placeholder="Display Name" required autocomplete="off" pattern=".{1,15}" title="Maximum 10 Characters Allowed"/>
         </div>
         <button type="submit" name="submit" class="login__submit">Submit</button>
       </div>

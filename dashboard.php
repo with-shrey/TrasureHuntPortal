@@ -63,17 +63,15 @@ function checkAnswer() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('submit_btn').innerHTML='Submit';
                   document.getElementById("submit_btn").disabled = false;
-                 var response= this.responseText;
-                if(response == 'Success'){
-                  document.getElementById("output").innerHTML=response;
+                 var res= this.responseText;
+		var response=parseInt(res)
+                if(response === 1){
+                  document.getElementById("output").innerHTML="Success";
                   document.getElementById('output').style.color = '#80ff80';
                   location.reload();
-                }else if( response == 'Wrong Answer'){
-                  document.getElementById("output").innerHTML=response;
+                }else if( response === 0){
+                  document.getElementById("output").innerHTML="Wrong Answer";
                   document.getElementById('output').style.color = '#ff3333';
-                }else if(response =='Well Done You Made It'){
-                  document.getElementById("output").innerHTML=response;
-                  document.getElementById('output').style.color = '#80ff80';
                 }else{
                   document.getElementById("output").innerHTML="Database Error !!";
                   console.log(response);
@@ -105,7 +103,7 @@ document.addEventListener("contextmenu", function(e){
   <li><a href="#" style="background-color:#34495e"><?php echo $id; ?></a>
 
   <li><a style="background-color:#1abc9c;" href="https://www.facebook.com/JuetFirefoxClub/" target="blank">HINTS</a></li>
-  <li><a style="background-color:#3498db;" href="leaderboard.php" target="blank">LEADERBOARD</a></li>
+  <li><a style="background-color:#3498db;" href="leaderboard.php" target="blank">SCORE</a></li>
 
 </ul>
   <div class="cont">
@@ -117,7 +115,7 @@ document.addEventListener("contextmenu", function(e){
           if(!isset($path))
             $path='finished.jpeg';
           echo '<img src="img/'.$path.'" height="350px" width="350px" style="margin:1% 35% 45% 35%;" />'; 
-          // echo '<div style="background-image: url(img/'.$path.'); height: 200px; width: 600px;background-size: contain; background-repeat:no-repeat;"></div>';
+ 
           ?>
       </div>
       <form onsubmit="checkAnswer();return false;">

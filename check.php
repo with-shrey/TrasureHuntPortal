@@ -14,13 +14,10 @@
   if(isset($ans)){
         $ans=strtolower($ans);
         if($ans == strtolower($_GET['a'])){
-        	$res_query=$mysql->query("update  users set solved = '$ques' where enrollid='$id'") or die("SQL Error + '$mysql->error'");
-        	if($res_query)
-        	echo 'Success';
-        	else
-        		echo 'Database Error!!';
+        	$res_query=$mysql->query("update  users set solved = '$ques' where enrollid='$id'") or die(-1);
+        	   echo 1;
        }else
-        	echo 'Wrong Answer';
+        	echo 0;
   }else
       echo 'Well Done You Made It';
 ?>
