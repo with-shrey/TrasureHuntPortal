@@ -120,7 +120,7 @@ document.addEventListener("contextmenu", function(e){
         <?php 
           
           if (strpos($path, 'jpg') !== false ||strpos($path, 'jpeg') !== false || strpos($path, 'png') !== false)
-          echo '<img src="img/question.jpeg" height="350px" width="350px" style="margin:1% 35% 45% 35%; opacity: 0.01;"/>'; 
+          echo '<img id="ques_img" src="img/question.jpeg" height="350px" width="350px" style="margin:1% 35% 45% 35%; "/>'; 
          ?>
       </div>
       <div>
@@ -134,6 +134,15 @@ document.addEventListener("contextmenu", function(e){
             ?>
           
       </div>
+          <script type="text/javascript">
+              document.getElementById("img_div").style.backgroundImage = <?php echo '"url(img/'.$path.')"';?>;
+              document.getElementById("img_div").style.backgroundSize ="350px 350px";
+              document.getElementById("img_div").style.backgroundRepeat ="no-repeat";
+              document.getElementById("img_div").style.backgroundPosition ="top";
+              var element = document.getElementById('ques_img');
+                element.style.opacity = "0.01";
+                element.style.filter  = 'alpha(opacity=01)'; // IE fallback
+            </script>
       <form onsubmit="checkAnswer();return false;">
       <div class="login__form">
       
@@ -160,15 +169,5 @@ document.addEventListener("contextmenu", function(e){
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  document.getElementById("img_div").style.backgroundImage = <?php echo '"url(img/'.$path.')"';?>;
-  document.getElementById("img_div").style.backgroundSize ="350px 350px";
-  document.getElementById("img_div").style.backgroundRepeat ="no-repeat";
-  document.getElementById("img_div").style.backgroundPosition ="top";
-
-
-</script>
-    
-
 </body>
 </html>

@@ -5,7 +5,7 @@ $message="";
 if($_SERVER['REQUEST_METHOD']=='POST'){
  if(isset($_POST['submit'])){
  $enroll_id=str_replace(" ","",$_POST['er_id']);
- $dname=$_POST['dname'];
+ $dname=strtoupper($_POST['dname']);
 $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
 
 
