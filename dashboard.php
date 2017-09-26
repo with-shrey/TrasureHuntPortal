@@ -39,7 +39,6 @@ else
   <title>Questions-War For Tresor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style-dash.css">
-  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
       <link rel="stylesheet" href="css/nav.css">
       
 <script>
@@ -120,7 +119,7 @@ document.addEventListener("contextmenu", function(e){
         <?php 
           
           if (strpos($path, 'jpg') !== false ||strpos($path, 'jpeg') !== false || strpos($path, 'png') !== false)
-          echo '<img id="ques_img" src="img/question.jpeg" height="350px" width="350px" style="margin:1% 35% 45% 35%; "/>'; 
+          echo '<img id="ques_img" src="img/question.jpeg" height="350px" width="350px" style="margin:1% 35% 45% 35%;"/>'; 
          ?>
       </div>
       <div>

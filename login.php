@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
 
 
-   if(preg_match('/^[1-1][4-7][1-1]/', $enroll_id) && strlen($enroll_id)>=6 && strlen($enroll_id)<=7 && strlen($dname)>0 && strlen($dname) <=15){
+   if(preg_match('/^[1-1][4-7][1-1]/', $enroll_id) && preg_match('/[0-9][0-9][0-9]$/', $enroll_id) && strlen($enroll_id)>=6 && strlen($enroll_id)<=7 && strlen($dname)>0 && strlen($dname) <=15){
     $stmtins = $mysql->prepare("insert into users values(?,?,'0')");
     $stmtins->bind_param('ss', $enroll_id,$dname);
     $stmtins->execute();
