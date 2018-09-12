@@ -86,7 +86,7 @@ function checkAnswer() {
                 console.log("timeout");
                 document.getElementById("output").style.color = 'transparent'; 
                   }, 
-                  6000);
+                  3000);
             }
         };
         xmlhttp.open("GET","check.php?a="+str,true);
@@ -107,8 +107,8 @@ document.addEventListener("contextmenu", function(e){
     <li><a class="active" href="logout.php">LOGOUT</a></li>
   <li><a href="#" style="background-color:#34495e;cursor:not-allowed;"><?php echo $id; ?></a>
 
-  <li><a style="background-color:#1abc9c;cursor:help;" href="https://www.facebook.com/events/1832466737043990/?ti=as" target="_blank">HINTS</a></li>
-  <li><a style="background-color:#3498db;" href="leaderboard.php" target="_blank">SCORE</a></li>
+  <li><a style="background-color:#1abc9c;cursor:help;" href="https://www.facebook.com/events/1832466737043990/?ti=as" target="hints">HINTS</a></li>
+  <li><a style="background-color:#3498db;" href="leaderboard.php" target="score">SCORE</a></li>
 
 </ul>
   <div class="cont">

@@ -27,7 +27,7 @@ $id=$_SESSION['id'];
     <li><a class="active" href="logout.php">LOGOUT</a></li>
   <li><a href="#" class="active" style="background-color:#34495e;cursor:not-allowed;"><?php echo $id; ?></a>
 
-  <li><a class="active" style="background-color:#1abc9c;cursor:help;" href="https://www.facebook.com/JuetFirefoxClub/" target="_blank">HINTS</a></li>
+  <li><a class="active" style="background-color:#1abc9c;cursor:help;" href="https://www.facebook.com/JuetFirefoxClub/" target="hints">HINTS</a></li>
   <li><a class="active" style="background-color:#3498db;" href="dashboard.php">QUESTIONS</a></li>
 
 </ul>
@@ -78,5 +78,6 @@ $id=$_SESSION['id'];
 	<script src="js/jquery-3.2.1.slim.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+<?php include("footer.html");?>
 </body>
 </html>

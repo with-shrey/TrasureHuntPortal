@@ -1,6 +1,9 @@
 <?php
 require 'db.php';
 session_start();
+if(isset($_SESSION['log_in'])){
+	header('Location: '.'logout.php');
+}
 $message="";
 if($_SERVER['REQUEST_METHOD']=='POST'){
  if(isset($_POST['submit'])){
@@ -80,5 +83,6 @@ $enroll_id=strtoupper($enroll_id);   //TODO:error beutify
 </div>
 
   <script src='css/jquery-3.2.1.slim.min.js'></script>
+
 </body>
 </html>

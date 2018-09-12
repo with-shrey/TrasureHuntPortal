@@ -23,6 +23,6 @@
 	Up for Hunt?
   <i></i>
 </a>
-
+<?php include("footer.html");?>
 </body>
 </html>

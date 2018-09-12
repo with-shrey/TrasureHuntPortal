@@ -1,6 +1,0 @@
-Options -Indexes
-RewriteEngine on 
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost [NC] 
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost.*$ [NC] 
-RewriteRule \.(css|.min.css)$ - [F]
-
